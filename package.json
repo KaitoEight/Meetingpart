@@ -25,6 +25,8 @@
     "react": "^18",
     "react-datepicker": "^6.3.0",
     "react-dom": "^18",
+    "stream-chat": "^8.31.0",
+    "stream-chat-react": "^11.18.1",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1"

@@ -22,6 +22,7 @@ import {
 import Loader from './Loader';
 import EndCallButton from './EndCallButton';
 import { cn } from '@/lib/utils';
+import ChatBox from './ChatBox';
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
 
@@ -33,6 +34,7 @@ const MeetingRoom = () => {
   const [layout, setLayout] = useState<CallLayoutType>('speaker-left');
   const [showParticipants, setShowParticipants] = useState(false);
   const { useCallCallingState } = useCallStateHooks();
+  const [isVisible, setIsVisible] = useState(false);
 
   // Lấy trạng thái của cuộc gọi
   const callingState = useCallCallingState();
@@ -104,9 +106,17 @@ const MeetingRoom = () => {
 
         {/* Nút kết thúc cuộc gọi */}
         {!isPersonalRoom && <EndCallButton />}
-        
+
         {/* Button hiển thị thống kê */}
         <CallStatsButton />
+
+        {/* Button hiển thị chat box */}
+        <div>
+          <button onClick={() => setIsVisible(!isVisible)}>Chat</button> {/* Button to toggle visibility */}
+          {isVisible && (
+            <ChatBox />
+          )}
+        </div>
       </div>
     </section>
   );
